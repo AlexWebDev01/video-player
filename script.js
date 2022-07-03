@@ -6,20 +6,33 @@ const volumeIcon = document.getElementById('volume-icon');
 const volumeRange = document.querySelector('.volume-range');
 const volumeBar = document.querySelector('.volume-bar');
 const currentTime = document.querySelector('time-elapsed');
-const duration = docuemnt.querySelector('.time-duration');
+const duration = document.querySelector('.time-duration');
 const fullscreen = document.querySelector('.fullscreen');
 
 
 
 // Play & Pause ----------------------------------- //
 
+function showPlayIcon() {
+    playBtn.classList.replace('fa-pause', 'fa-play');
+    playBtn.setAttribute('title', 'Play');
+    playBtn.setAttribute('src', './play.png');
+}
+
 function togglePlay() {
-    if (video.pause) {
+    if (video.paused) {
         video.play();
+        playBtn.classList.replace('fa-play', 'fa-pause');
+        playBtn.setAttribute('title', 'Pause');
+        playBtn.setAttribute('src', './pause.png');
     } else {
         video.pause();
+        showPlayIcon();
     }
 }
+
+// On video end show play button icon
+video.addEventListener('ended', showPlayIcon);
 
 // Progress Bar ---------------------------------- //
 
