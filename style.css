@@ -296,7 +296,10 @@ select > option {
   }
 
   .video-fullscreen {
+    position: relative;
     height: 97.5vh;
     border-radius: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
